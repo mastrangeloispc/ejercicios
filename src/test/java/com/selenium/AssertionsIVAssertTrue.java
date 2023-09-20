@@ -36,13 +36,13 @@ public class AssertionsIVAssertTrue {
 
         driver.get("https://www.amazon.com");
 
-        String producto = "monitor";
+        String productName = "cachirulojhfkdshfkdhsfuer";
         WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
-        searchBox.sendKeys(producto);
+        searchBox.sendKeys(productName);
         searchBox.submit();
-
-        boolean isAvailable = driver.findElements(By.xpath("//span[contains(text(), 'No results for')]")).isEmpty();
-        assertTrue(!isAvailable);
-
+        
+        WebElement productLink = driver.findElement(By.xpath("//span[contains(text(), productName)]"));
+        assertTrue(productLink.isDisplayed());
+       
     }
 }
